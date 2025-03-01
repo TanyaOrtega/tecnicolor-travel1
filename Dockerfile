@@ -21,8 +21,12 @@ COPY . .
 # Instala dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Permisos para storage y bootstrap/cache
+# Crea los directorios si no existen
+RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Asigna permisos a las carpetas necesarias
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
 
 # Expone el puerto 80
 EXPOSE 80
