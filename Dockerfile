@@ -14,22 +14,34 @@ RUN apt-get update && apt-get install -y \
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copia los archivos del proyecto
+# Configura el directorio de trabajo
 WORKDIR /var/www/html
+
+# Copia los archivos del proyecto
 COPY . .
 
 # Instala dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Crea los directorios si no existen
-RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
+# Crea los directorios si no existen y asigna permisos adecuados
+RUN mkdir -p storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
-# Asigna permisos a las carpetas necesarias
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Habilita mod_rewrite para Laravel
+RUN a2enmod rewrite
 
+# Asegurar que Apache sirva desde la carpeta public/
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
-# Expone el puerto 80
-EXPOSE 80
+# Especificar ServerName para evitar advertencias
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Cambia el puerto de Apache a 10000 (Render espera este puerto)
+RUN sed -i 's/80/10000/g' /etc/apache2/ports.conf /etc/apache2/sites-available/000-default.conf
+
+# Expone el puerto 10000
+EXPOSE 10000
 
 # Comando para iniciar Apache
 CMD ["apache2-foreground"]
