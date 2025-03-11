@@ -30,7 +30,7 @@ class ViajeController extends Controller
     {
         $viajes = Viaje::query();
 
-        // 🔎 Filtro por destino (parcial y exacto)
+        // 🔎 Fitro por destino (parcial y exacto)
         if ($request->filled('destino')) {
             $destino = strtolower($request->destino);
             $viajes->where(function($query) use ($destino) {
@@ -61,4 +61,16 @@ class ViajeController extends Controller
         $viaje = Viaje::where('slug', $slug)->firstOrFail();
         return view('viajes.mostrar', compact('viaje'));
     }
+
+    public function descargarItinerario($id)
+{
+    $viaje = Viaje::findOrFail($id);
+
+    if ($viaje->pdf && file_exists(public_path($viaje->pdf))) {
+        return response()->download(public_path($viaje->pdf));
+    }
+
+    return back()->with('error', 'El itinerario no está disponible.');
+}
+
 }

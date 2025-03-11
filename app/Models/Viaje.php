@@ -20,9 +20,11 @@ class Viaje extends Model
         'actividad',
         'meta_title',
         'meta_description',
+        'pdf', // 🔹 Nuevo campo agregado
     ];
 
     protected $casts = [
         'destinos' => 'array', // 🔗 Cast para manejar el JSON como array en Eloquent
     ];
 }
+

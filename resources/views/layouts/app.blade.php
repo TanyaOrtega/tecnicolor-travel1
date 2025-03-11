@@ -7,10 +7,42 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f5f5f5; }
-        footer { background-color: #ce79e8; color: white; text-align: center; padding: 10px 0; margin-top: 50px; }
-        .navbar { background-color: #ce79e8; }
-        .navbar-brand, .nav-link, footer { color: white !important; }
+        body {
+            background-color: #F3E5F5;
+            color: #212121;
+        }
+        .navbar {
+            background-color: #7B1FA2;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .navbar-toggler {
+            border-color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #E91E63;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #C2185B;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        footer {
+            background-color: #7B1FA2;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -24,8 +56,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/viajes/eurotrip') }}">Eurotrip 2025</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/viajes/grecia-croacia') }}">Verano Azul 2025</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('/contacto') }}">Contacto</a></li>
                 </ul>
             </div>
@@ -36,6 +66,13 @@
     <div class="container my-5">
         @yield('content')
     </div>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 
     <!-- Footer -->
     <footer>
