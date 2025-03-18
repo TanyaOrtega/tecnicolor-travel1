@@ -31,7 +31,36 @@
     </form>
 </div>
 
+<!-- Slider de fotos de viajes pasados -->
+<h3 class="text-center mb-3">Inspírate con algunos de nuestros destinos 2025</h3>
+<div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ asset('images/slides/viaje5.png') }}" class="d-block w-100" alt="Viaje 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/slides/viaje6.png') }}" class="d-block w-100" alt="Viaje 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/slides/viaje7.png') }}" class="d-block w-100" alt="Viaje 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/slides/viaje8.png') }}" class="d-block w-100" alt="Viaje 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/slides/viaje9.png') }}" class="d-block w-100" alt="Viaje 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+</div>
+
 <!-- 🌍 Viajes disponibles -->
+<h3 class="text-center mb-3">Dale un vistazo a los viajes que diseñamos para tí</h3>
 <div class="row g-4">
     @foreach($viajes as $viaje)
     <div class="col-md-6">

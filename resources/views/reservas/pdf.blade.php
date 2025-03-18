@@ -18,7 +18,7 @@
         <p><strong>Correo electrónico:</strong> {{ $reserva->email }}</p>
         <p><strong>Teléfono:</strong> {{ $reserva->telefono ?? 'No proporcionado' }}</p>
         <p><strong>Número de personas:</strong> {{ $reserva->personas }}</p>
-        <p><strong>Anticipo pagado:</strong> ${{ number_format($reserva->anticipo, 2) }} USD</p>
+        <p><strong>Anticipo pagado:</strong> ${{ number_format($reserva->anticipo, 2) }} MXN</p>
     </div>
 
     <p>Gracias por confiar en Tecnicolor Travel. ¡Nos vemos pronto!</p>

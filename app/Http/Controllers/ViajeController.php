@@ -62,15 +62,22 @@ class ViajeController extends Controller
         return view('viajes.mostrar', compact('viaje'));
     }
 
+
     public function descargarItinerario($id)
 {
     $viaje = Viaje::findOrFail($id);
 
-    if ($viaje->pdf && file_exists(public_path($viaje->pdf))) {
-        return response()->download(public_path($viaje->pdf));
+    // Si la ruta guardada ya incluye "storage/", ajustamos la descarga
+    $rutaArchivo = str_starts_with($viaje->pdf, 'storage/') 
+        ? storage_path("app/public/" . str_replace('storage/', '', $viaje->pdf)) 
+        : public_path($viaje->pdf);
+
+    if ($viaje->pdf && file_exists($rutaArchivo)) {
+        return response()->download($rutaArchivo);
     }
 
     return back()->with('error', 'El itinerario no está disponible.');
 }
+
 
 }
