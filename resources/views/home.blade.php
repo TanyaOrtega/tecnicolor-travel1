@@ -36,19 +36,19 @@
 <div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{ asset('images/slides/viaje5.png') }}" class="d-block w-100" alt="Viaje 1">
+            <img src="{{ asset('images/slides/viaje5.jpg') }}" class="d-block w-100" alt="Viaje 1">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('images/slides/viaje6.png') }}" class="d-block w-100" alt="Viaje 2">
+            <img src="{{ asset('images/slides/viaje6.jpg') }}" class="d-block w-100" alt="Viaje 2">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('images/slides/viaje7.png') }}" class="d-block w-100" alt="Viaje 3">
+            <img src="{{ asset('images/slides/viaje7.jpg') }}" class="d-block w-100" alt="Viaje 3">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('images/slides/viaje8.png') }}" class="d-block w-100" alt="Viaje 3">
+            <img src="{{ asset('images/slides/viaje8.jpg') }}" class="d-block w-100" alt="Viaje 3">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('images/slides/viaje9.png') }}" class="d-block w-100" alt="Viaje 3">
+            <img src="{{ asset('images/slides/viaje9.jpg') }}" class="d-block w-100" alt="Viaje 3">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
