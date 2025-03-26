@@ -14,7 +14,7 @@
             <input type="text" class="form-control" name="destino" placeholder="🌎 Destino (Ej. París, Santorini)">
         </div>
         <div class="col-md-4">
-            <input type="number" class="form-control" name="presupuesto" placeholder="💸 Presupuesto (USD)">
+            <input type="number" class="form-control" name="presupuesto" placeholder="💸 Presupuesto (MXN)">
         </div>
         <div class="col-md-4">
             <select class="form-select" name="actividad">

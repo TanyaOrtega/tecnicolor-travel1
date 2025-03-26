@@ -37,7 +37,10 @@
         <input type="number" name="anticipo" class="form-control" min="1" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Confirmar y Pagar</button>
+    <div class="botones-container d-flex flex-wrap justify-content-center gap-3">
+
+        <button type="submit" class="btn btn-primary">Confirmar y Pagar</button>
+    </div>
 </form>
 </div>
 @endsection

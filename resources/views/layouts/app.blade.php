@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnicolor Travel 🌈</title>
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&family=Boldonse:wght@700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         /* Colores y estilo general */
         body {
             background-color: #F3E5F5;
             color: #212121;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
 
@@ -35,16 +41,16 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            color: #51d1f6 !important;
-            font-size: 1.8rem;
+            color: rgb(244, 249, 251) !important;
+            font-size: 3rem;
             font-weight: 700;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Boldonse", system-ui;
         }
 
         .navbar-brand img {
-            width: 70px;
+            width: 100px;
             height: auto;
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         .nav-link {
@@ -62,11 +68,30 @@
             border-color: #ffffff;
         }
 
-         /* Slider */
-         .carousel-item img {
-            height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
+        
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-link {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .navbar-brand img {
+                width: 80px; /* Reduce el tamaño del logo */
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .navbar-toggler {
+                margin: auto; /* Centra el menú hamburguesa */
+            }
         }
 
         /* Botón principal */
@@ -76,10 +101,39 @@
             border-radius: 25px;
             padding: 10px 30px;
             transition: background 0.3s ease;
+            gap: 15px;
         }
 
         .btn-primary:hover {
             background-color: #C2185B;
+        }
+
+        /* Ajustes responsivos de botones */
+        .botones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .botones-container .btn {
+            min-width: 180px;
+            padding: 12px 20px;
+            margin: 5px;
+            font-size: 1rem;
+        }
+        
+
+
+        @media (max-width: 576px) {
+            .botones-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .botones-container .btn {
+                width: 100%;
+            }
         }
 
         /* Estilos de tarjetas */
@@ -97,6 +151,9 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 50px;
+            width: 100%;
+            position: relative;
+            
         }
 
         .social-links {
@@ -128,6 +185,7 @@
             width: 70px;
             height: 70px;
         }
+
     </style>
 </head>
 <body>
@@ -153,7 +211,6 @@
     <!-- Contenido principal -->
     <div class="container my-5">
         @yield('content')
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -178,4 +235,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

@@ -8,11 +8,14 @@
     <p><strong>Personas:</strong> {{ $reserva->personas }}</p>
     <p><strong>Anticipo pagado:</strong> ${{ $reserva->anticipo }}</p>
 
+<div class="botones-container d-flex flex-wrap justify-content-center gap-3">
     <a href="{{ route('reservas.pdf', ['reserva_id' => $reserva->id]) }}" class="btn btn-primary">
     📄 Descargar tu Confirmación
-</a>
+        </a>
 
 
     <a href="{{ url('/') }}" class="btn btn-primary">🏠 Volver al inicio</a>
 </div>
+</div>
 @endsection
+
