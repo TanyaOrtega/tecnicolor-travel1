@@ -39,12 +39,12 @@ Reserva tu lugar con $10,000 MXP y liquida en cómodos abonos hasta un mes antes
                 'actividad' => 'cultural',
                 'meta_title' => 'Viaje a Europa 2025: Madrid, Roma, París y más | Tecnicolor Travel',
                 'meta_description' => 'Descubre Europa en primavera/verano 2025...',
-                'pdf' => 'itinerarios/eurotrip_itinerario.pdf',  // El nuevo campo PDF
-                'updated_at' => now(),  // Asegura que la fecha de actualización se actualice
+                'pdf' => 'itinerarios/eurotrip_itinerario.pdf',
+                'updated_at' => now(), 
             ]
         );
 
-        // Hacemos lo mismo con el viaje de Grecia y Croacia
+        
         Viaje::updateOrInsert(
             ['slug' => 'grecia-croacia-belleza-adriatico'], 
             [

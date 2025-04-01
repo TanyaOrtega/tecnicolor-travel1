@@ -15,12 +15,15 @@
         </a>
 
         {{-- Botón para descargar itinerario --}}
+
+        
         @if($viaje->pdf)
             <a href="{{ route('viajes.itinerario', ['id' => $viaje->id]) }}" class="btn btn-success" target="_blank">
                 📄 Descargar Itinerario
             </a>
         @endif
 
+        
         <a href="{{ url('/') }}" class="btn btn-secondary">⬅️ Volver al inicio</a>
     </div>
 </div>
