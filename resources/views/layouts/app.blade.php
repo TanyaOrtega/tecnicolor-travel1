@@ -34,8 +34,11 @@
 
         /* Navbar */
         .navbar {
-            background-color: #6A1B9A;
-            padding: 10px 0;
+            background: linear-gradient(to right, #6A1B9A, #9C27B0);
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1050;
         }
 
         .navbar-brand {
@@ -44,6 +47,10 @@
             color: rgb(244, 249, 251) !important;
             font-size: 3rem;
             font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
             font-family: "Boldonse", system-ui;
         }
 
@@ -51,6 +58,10 @@
             width: 100px;
             height: auto;
             margin-right: 20px;
+            border-radius: 15px; /* Esquinas redondeadas */
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            backdrop-filter: blur(5px);
         }
 
         .nav-link {
@@ -70,6 +81,11 @@
 
         
         @media (max-width: 768px) {
+
+            .container {
+                padding-top: 20px;
+            }
+            
             .navbar-brand {
                 font-size: 1.8rem;
                 display: flex;
@@ -81,17 +97,35 @@
             .nav-link {
                 text-align: center;
                 margin: 10px 0;
+                padding: 8px 0;
             }
 
             .navbar-brand img {
                 width: 80px; /* Reduce el tamaño del logo */
                 margin-right: 0;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
             }
 
             .navbar-toggler {
-                margin: auto; /* Centra el menú hamburguesa */
+                margin: auto;
+                border: none;
+                outline: none;
             }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='%23ffffff'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+                width: 35px;
+                height: 35px;
+    }
+
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                background: rgba(106, 27, 154, 0.9);
+                border-radius: 0 0 15px 15px;
+                padding: 10px 0;
+             }
         }
 
         /* Botón principal */
