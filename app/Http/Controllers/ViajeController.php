@@ -30,19 +30,38 @@ class ViajeController extends Controller
     {
         $viajes = Viaje::query();
 
-        // 🔎 Fitro por destino (parcial y exacto)
+// 🔎 Fitro por destino (parcial y exacto)
         if ($request->filled('destino')) {
             $destino = strtolower($request->destino);
+        
             $viajes->where(function($query) use ($destino) {
-                $query->whereJsonContains('destinos', $destino)
-                      ->orWhere('descripcion_corta', 'like', "%$destino%")
-                      ->orWhere('descripcion_larga', 'like', "%$destino%");
+                $query
+                    ->whereRaw("LOWER(destinos) LIKE ?", ["%$destino%"])
+                    ->orWhereRaw("LOWER(paises) LIKE ?", ["%$destino%"]) // 🔥 agregamos esta línea
+                    ->orWhereRaw("LOWER(nombre) LIKE ?", ["%$destino%"])
+                    ->orWhereRaw("LOWER(descripcion_corta) LIKE ?", ["%$destino%"])
+                    ->orWhereRaw("LOWER(descripcion_larga) LIKE ?", ["%$destino%"]);
             });
         }
 
         // 💸 Filtro por presupuesto
         if ($request->filled('presupuesto')) {
-            $viajes->where('presupuesto', '<=', $request->presupuesto);
+            $presupuesto = $request->presupuesto;
+
+            switch ($presupuesto) {
+                case '0-20000':
+                    $viajes->whereBetween('presupuesto', [0, 20000]);
+                    break;
+                case '20001-40000':
+                    $viajes->whereBetween('presupuesto', [20001, 40000]);
+                    break;
+                case '40001-60000':
+                    $viajes->whereBetween('presupuesto', [40001, 60000]);
+                    break;
+                case '60001-mas':
+                    $viajes->where('presupuesto', '>', 60000);
+                    break;
+            }
         }
 
         // 🏄‍♂️ Filtro por actividad

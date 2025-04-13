@@ -9,9 +9,9 @@ class ViajesSeeder extends Seeder
 {
     public function run(): void
     {
-        // Primero, actualizamos o insertamos el viaje con slug 'vuelta-europa-primavera-verano-2025'
+        
         Viaje::updateOrInsert(
-            ['slug' => 'vuelta-europa-primavera-verano-2025'], // Buscar por el slug
+            ['slug' => 'vuelta-europa-primavera-verano-2025'], 
             [
                 'nombre' => '✨ La Vuelta a Europa Primavera/Verano 2025 ✨',
                 'descripcion_corta' => 'Recorre Madrid, Roma, Bari, Budapest, Viena, Praga y París.',
@@ -39,12 +39,13 @@ Reserva tu lugar con <strong>$10,000 MXP</strong> y liquida en cómodos abonos h
                 'actividad' => 'cultural',
                 'meta_title' => 'Viaje a Europa 2025: Madrid, Roma, París y más | Tecnicolor Travel',
                 'meta_description' => 'Descubre Europa en primavera/verano 2025...',
-                'pdf' => 'itinerarios/eurotrip_itinerario.pdf',  // El nuevo campo PDF
-                'updated_at' => now(),  // Asegura que la fecha de actualización se actualice
+                'paises' => json_encode(['España', 'Italia', 'Hungría', 'Austria', 'República Checa', 'Francia']),
+                'pdf' => 'itinerarios/eurotrip_itinerario.pdf',
+                'updated_at' => now(), 
             ]
         );
 
-        // Hacemos lo mismo con el viaje de Grecia y Croacia
+        
         Viaje::updateOrInsert(
             ['slug' => 'grecia-croacia-belleza-adriatico'], 
             [
@@ -70,6 +71,7 @@ Reserva tu lugar con <strong>$10,000 MXP</strong> y liquida en cómodos abonos h
                 'actividad' => 'playa',
                 'meta_title' => 'Italia, Grecia y Croacia: Atenas, Santorini y Dubrovnik | Tecnicolor Travel',
                 'meta_description' => 'Viaja a Italia, Grecia y Croacia...',
+                'paises' => json_encode(['Italia', 'Grecia', 'Croacia']),
                 'pdf' => 'itinerarios/grecia_croacia_itinerario.pdf',
                 'updated_at' => now(),
             ]

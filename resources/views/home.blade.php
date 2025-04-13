@@ -14,7 +14,13 @@
             <input type="text" class="form-control" name="destino" placeholder="🌎 Destino (Ej. París, Santorini)">
         </div>
         <div class="col-md-4">
-            <input type="number" class="form-control" name="presupuesto" placeholder="💸 Presupuesto (MXN)">
+            <select name="presupuesto" class="form-control">
+                <option value="">💰 Presupuesto (MXN)</option>
+                <option value="0-20000">0 - 20,000 MXN</option>
+                <option value="20001-40000">20,001 - 40,000 MXN</option>
+                <option value="40001-60000">40,001 - 60,000 MXN</option>
+                <option value="60001-mas">Más de 60,000 MXN</option>
+            </select>
         </div>
         <div class="col-md-4">
             <select class="form-select" name="actividad">

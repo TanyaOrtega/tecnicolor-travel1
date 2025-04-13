@@ -14,7 +14,7 @@ Route::get('/buscar', [ViajeController::class, 'buscar'])->name('viajes.buscar')
 
 // ✉️ Contacto
 Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto');
-Route::post('/contacto/enviar', [ContactoController::class, 'enviarFormulario'])->name('contacto.enviar');
+Route::post('/contacto', [ContactoController::class, 'enviarFormulario'])->name('contacto.enviar');
 
 // 📄 Formulario de reserva
 Route::get('/reservas/formulario/{viaje_id}', [ReservaController::class, 'formulario'])->name('reservas.formulario');
